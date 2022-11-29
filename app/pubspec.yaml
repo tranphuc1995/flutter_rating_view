@@ -31,8 +31,11 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  lib:
-    path: ../lib
+  rating_view_widget:
+    path: ../rating_view_widget
+  focus_detector: ^2.0.1
+  get: ^4.6.5
+  rxdart: ^0.27.5
 
 
   # The following adds the Cupertino Icons font to your application.

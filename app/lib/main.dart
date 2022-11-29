@@ -1,5 +1,13 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
-import 'package:lib/rating_view_widget.dart';
+import 'package:focus_detector/focus_detector.dart';
+import 'package:rating_view/rx_screen.dart';
+import 'package:rating_view/second_screen.dart';
+import 'package:rating_view_widget/rating_view_widget.dart';
+import 'package:get/get.dart';
+
+
 
 void main() {
   runApp(const MyApp());
@@ -11,7 +19,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application.
@@ -25,32 +33,146 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: RxScreen(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
+class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text(widget.title),
+          title: Text('xxxx'),
         ),
-        body: Center(
-            child: RatingViewWidget(
-                colorStar: Colors.yellow,
-                sizeStar: 64,
-                spaceHorizontal: 5,
-                starRating: 4.5)));
+        body: FocusDetector(
+            onFocusLost: () {
+              log('onFocusLost');
+            },
+            onFocusGained: () {
+              log('onFocusGained');
+            },
+            onVisibilityLost: () {
+              log('onVisibilityLost');
+            },
+            onVisibilityGained: () {
+              log('onVisibilityGained');
+            },
+            onForegroundLost: () {
+              log('onForegroundLost');
+            },
+            onForegroundGained: () {
+              log('onForegroundGained');
+            },
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Text(
+                    'asdasdsad1',
+                    style: TextStyle(fontSize: 30),
+                  ),
+                  FocusDetector(
+                    onVisibilityGained: () {
+                      log('text onVisibilityGained');
+                    },
+                    onVisibilityLost: () {
+                      log('text onVisibilityLost');
+                    },
+                    child: Text(
+                      'asdasdsad50',
+                      style: TextStyle(fontSize: 30),
+                    ),
+                  ),
+                  Text(
+                    'asdasdsad2',
+                    style: TextStyle(fontSize: 30),
+                  ),
+                  Text(
+                    'asdasdsa3',
+                    style: TextStyle(fontSize: 30),
+                  ),
+                  Text(
+                    'asdasdsa4',
+                    style: TextStyle(fontSize: 30),
+                  ),
+                  Text(
+                    'asdasdsad1',
+                    style: TextStyle(fontSize: 30),
+                  ),
+                  Text(
+                    'asdasdsad2',
+                    style: TextStyle(fontSize: 30),
+                  ),
+                  Text(
+                    'asdasdsa3',
+                    style: TextStyle(fontSize: 30),
+                  ),
+                  Text(
+                    'asdasdsa4',
+                    style: TextStyle(fontSize: 30),
+                  ),
+                  Text(
+                    'asdasdsad1',
+                    style: TextStyle(fontSize: 30),
+                  ),
+                  Text(
+                    'asdasdsad2',
+                    style: TextStyle(fontSize: 30),
+                  ),
+                  Text(
+                    'asdasdsa3',
+                    style: TextStyle(fontSize: 30),
+                  ),
+                  Text(
+                    'asdasdsa4',
+                    style: TextStyle(fontSize: 30),
+                  ),
+                  Text(
+                    'asdasdsad1',
+                    style: TextStyle(fontSize: 30),
+                  ),
+                  Text(
+                    'asdasdsad2',
+                    style: TextStyle(fontSize: 30),
+                  ),
+                  Text(
+                    'asdasdsa3',
+                    style: TextStyle(fontSize: 30),
+                  ),
+                  Text(
+                    'asdasdsa4',
+                    style: TextStyle(fontSize: 30),
+                  ),
+                  Text(
+                    'asdasdsad2',
+                    style: TextStyle(fontSize: 30),
+                  ),
+                  Text(
+                    'asdasdsa3',
+                    style: TextStyle(fontSize: 30),
+                  ),
+                  Text(
+                    'asdasdsa4',
+                    style: TextStyle(fontSize: 30),
+                  ),
+                  Text(
+                    'asdasdsad1',
+                    style: TextStyle(fontSize: 30),
+                  ),
+                  Text(
+                    'asdasdsad2',
+                    style: TextStyle(fontSize: 30),
+                  ),
+                  Text(
+                    'asdasdsa3',
+                    style: TextStyle(fontSize: 30),
+                  ),
+                  Text(
+                    'asdasdsa4',
+                    style: TextStyle(fontSize: 30),
+                  )
+                ],
+              ),
+            )));
   }
 }
